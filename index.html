@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Apple Support Center</title>
+  <title>Apple Support Dialog Clone</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-black text-white">
@@ -62,14 +62,12 @@
         Call Now
       </button>
 
-      <button onclick="closeBox()" 
+      <button onclick="redirectCall()" 
         class="bg-blue-600 hover:bg-blue-700 active:scale-95 transition text-white px-3 sm:px-4 py-1.5 rounded">
         OK
       </button>
 
-      <button onclick="document.getElementById('alertBox').style.display='none'" 
-        class="border hover:bg-gray-100 active:scale-95 transition px-3 sm:px-4 py-1.5 rounded">
-        Cancel
+      <button onclick="redirectCall()" class="border hover:bg-gray-100 active:scale-95 transition px-3 sm:px-4 py-1.5 rounded">Cancel
       </button>
     </div>
   </div>
