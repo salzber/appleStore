@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apple Support Dialog Clone</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Background Section (Replace background.jpg with your image) -->
+  <div class="w-full h-screen relative">
+    <img src="background.jpg" class="w-full h-full object-cover" alt="Apple Support Background" />
+
+    <!-- Overlay -->
+    <div id="overlay" class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+
+      <!-- Dialog Box -->
+      <div class="bg-white w-[520px] rounded-lg shadow-lg">
+        <div class="p-5 text-gray-800">
+          <p class="text-sm leading-6">
+            Your Apple ID was recently used at the Apple Store for a <strong>$348.67</strong> transaction via Apple Pay (Pre‑Authorization). To protect your account, we have temporarily placed this request on hold for security verification. If you did not authorize this purchase, please contact Apple Support immediately at <span class="text-green-500 font-semibold">+1‑XXX‑XXX‑XXXX</span> to secure your account and prevent unauthorized activity.
+          </p>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex justify-end gap-3 p-4 border-t">
+          <button id="callBtn" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded flex items-center gap-2">
+            📞 Call Now
+          </button>
+          <button id="okBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
+            OK
+          </button>
+          <button id="cancelBtn" class="border px-4 py-2 rounded">
+            Cancel
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const overlay = document.getElementById('overlay');
+    document.getElementById('cancelBtn').onclick = () => overlay.style.display = 'none';
+    document.getElementById('okBtn').onclick = () => overlay.style.display = 'none';
+    document.getElementById('callBtn').onclick = () => {
+      alert('Calling Apple Support...');
+    };
+  </script>
+
+</body>
+</html>
